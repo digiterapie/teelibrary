@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeeLibrary</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-deep: #0a7c79;
+    --teal-mid: #14b8a6;
+    --teal-light: #5eead4;
+    --teal-pale: #ccfbf1;
+    --teal-glow: #0d9488;
+    --bg: #f0fdfa;
+    --card-bg: #ffffff;
+    --text: #134e4a;
+    --text-soft: #5f9ea0;
+    --shadow: 0 4px 24px rgba(20, 184, 166, 0.13);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Decorative background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(20,184,166,0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -150px; left: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(94,234,212,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    padding: 60px 0 48px;
+  }
+
+  .logo-icon {
+    width: 64px; height: 64px;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal-mid));
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 32px rgba(20,184,166,0.35);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .logo-icon svg {
+    width: 32px; height: 32px;
+    fill: white;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    color: var(--teal-deep);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  h1 span {
+    color: var(--teal-mid);
+  }
+
+  .subtitle {
+    margin-top: 10px;
+    color: var(--text-soft);
+    font-size: 0.95rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 8px;
+  }
+
+  /* Card */
+  .card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 28px 24px 22px;
+    box-shadow: var(--shadow);
+    border: 1.5px solid rgba(20,184,166,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    animation: fadeUp 0.5s ease both;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(20,184,166,0.22);
+    border-color: rgba(20,184,166,0.35);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.1s; }
+  .card:nth-child(3) { animation-delay: 0.15s; }
+  .card:nth-child(4) { animation-delay: 0.2s; }
+  .card:nth-child(5) { animation-delay: 0.25s; }
+  .card:nth-child(6) { animation-delay: 0.3s; }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .app-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--teal-pale), var(--teal-light));
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 22px;
+    box-shadow: 0 2px 8px rgba(20,184,166,0.2);
+  }
+
+  .card-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-name {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .card-url {
+    font-size: 0.75rem;
+    color: var(--text-soft);
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 300;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .btn-open {
+    flex: 1;
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal-glow));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 9px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    transition: opacity 0.2s;
+  }
+
+  .btn-open:hover { opacity: 0.88; }
+
+  .btn-copy {
+    width: 38px; height: 38px;
+    background: var(--teal-pale);
+    border: 1.5px solid rgba(20,184,166,0.25);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .btn-copy:hover {
+    background: var(--teal-light);
+    transform: scale(1.08);
+  }
+
+  .btn-copy svg {
+    width: 16px; height: 16px;
+    stroke: var(--teal-deep);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Copied tooltip */
+  .tooltip {
+    position: absolute;
+    bottom: 44px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.85);
+    background: var(--teal-deep);
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .btn-copy.copied .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+
+  /* Count badge */
+  .count {
+    display: inline-block;
+    background: var(--teal-pale);
+    color: var(--teal-deep);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 8px;
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6h16M4 10h16M4 14h10M4 18h7M19 14l2 2-4 4-2-2"/>
+      </svg>
+    </div>
+    <h1>Tee<span>Library</span></h1>
+    <p class="subtitle">Moje aplikace na jednom místě</p>
+    <span class="count" id="count"></span>
+  </header>
+
+  <div class="grid" id="grid"></div>
+</div>
+
+<script>
+  const apps = [
+    { name: "FirstMap", url: "https://firstmap-rosy.vercel.app/", emoji: "🗺️" },
+    { name: "Terka Pro", url: "https://terka-pro.vercel.app/", emoji: "✨" },
+    { name: "Digiterapie Studio", url: "https://digistudio-eta.vercel.app/", emoji: "🧠" },
+    { name: "Gabina Pro", url: "https://gabina-pro.vercel.app/", emoji: "💜" },
+    { name: "Erasmus+ Göteborg 2026", url: "https://erasmus-goteborg.vercel.app/", emoji: "🌍" },
+  ];
+
+  const grid = document.getElementById('grid');
+  const countEl = document.getElementById('count');
+  countEl.textContent = `${apps.length} aplikací`;
+
+  apps.forEach(app => {
+    const domain = new URL(app.url).hostname;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    card.innerHTML = `
+      <div class="card-top">
+        <div class="app-icon">${app.emoji}</div>
+        <div class="card-info">
+          <div class="card-name">${app.name}</div>
+          <div class="card-url">${domain}</div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a class="btn-open" href="${app.url}" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Otevřít
+        </a>
+        <button class="btn-copy" onclick="copyLink(this, '${app.url}')">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          <span class="tooltip">Zkopírováno!</span>
+        </button>
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+
+  function copyLink(btn, url) {
+    navigator.clipboard.writeText(url).then(() => {
+      btn.classList.add('copied');
+      setTimeout(() => btn.classList.remove('copied'), 1800);
+    });
+  }
+</script>
+</body>
+</html>
