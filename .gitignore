@@ -1,0 +1,19 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Claude Code
+.claude/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (pro případ, že bys v budoucnu přidala node_modules)
+node_modules/
+
+# Environment
+.env
+.env.local
