@@ -29,8 +29,6 @@
       --card-bg:     #ffffff;
       --text:        #134e4a;
       --text-soft:   #5f9ea0;
-      --danger:      #e11d48;
-      --danger-soft: #fecdd3;
       --shadow-sm:   0 2px 8px rgba(10, 124, 121, 0.08);
       --shadow-md:   0 8px 24px rgba(10, 124, 121, 0.12);
       --shadow-lg:   0 16px 48px rgba(10, 124, 121, 0.18);
@@ -49,7 +47,7 @@
 
     body {
       position: relative;
-      padding-bottom: 120px;
+      padding-bottom: 60px;
     }
 
     /* Dekorativní gradienty na pozadí */
@@ -86,7 +84,6 @@
     header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
       margin-bottom: 32px;
@@ -122,12 +119,6 @@
       margin-top: 2px;
     }
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     /* Tlačítka */
     .btn {
       font-family: inherit;
@@ -161,11 +152,6 @@
       background: var(--teal-pale);
       border-color: var(--teal-light);
     }
-    .btn-danger {
-      background: var(--danger);
-      color: white;
-    }
-    .btn-danger:hover { opacity: 0.9; }
     .btn-icon {
       padding: 8px;
       width: 36px;
@@ -245,12 +231,6 @@
       border-color: var(--teal-deep);
       box-shadow: var(--shadow-sm);
     }
-    .cat-btn .cat-delete {
-      margin-left: 4px;
-      opacity: 0.6;
-      font-size: 12px;
-    }
-    .cat-btn .cat-delete:hover { opacity: 1; }
 
     /* ========== APPS GRID ========== */
     .apps-grid {
@@ -348,151 +328,6 @@
       font-size: 14px;
     }
 
-    /* Admin-only prvky */
-    body:not(.is-admin) .admin-only { display: none !important; }
-
-    /* ========== FAB (Floating Add Button) ========== */
-    .fab {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      width: auto;
-      height: 60px;
-      padding: 0 24px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--teal-deep), var(--teal-glow));
-      color: white;
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 15px;
-      border: none;
-      cursor: pointer;
-      box-shadow: var(--shadow-lg);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      z-index: 50;
-      transition: all 0.3s ease;
-    }
-    .fab:hover {
-      transform: translateY(-3px) scale(1.03);
-    }
-    .fab .fab-icon {
-      font-size: 22px;
-      line-height: 1;
-    }
-
-    /* ========== MODAL ========== */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(19, 78, 74, 0.4);
-      backdrop-filter: blur(4px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      padding: 20px;
-    }
-    .modal-backdrop.open { display: flex; }
-
-    .modal {
-      background: white;
-      border-radius: var(--radius);
-      padding: 28px;
-      max-width: 520px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: var(--shadow-lg);
-      animation: modalIn 0.25s ease;
-    }
-    @keyframes modalIn {
-      from { opacity: 0; transform: translateY(20px) scale(0.98); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-    .modal-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--teal-deep);
-    }
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: var(--text-soft);
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-close:hover { background: var(--teal-pale); }
-
-    .form-group { margin-bottom: 16px; }
-    .form-label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .form-input, .form-textarea, .form-select {
-      width: 100%;
-      font-family: inherit;
-      font-size: 15px;
-      padding: 12px 14px;
-      border: 2px solid var(--teal-pale);
-      border-radius: var(--radius-sm);
-      background: white;
-      color: var(--text);
-      transition: border-color 0.2s ease;
-    }
-    .form-input:focus, .form-textarea:focus, .form-select:focus {
-      outline: none;
-      border-color: var(--teal-mid);
-    }
-    .form-textarea {
-      resize: vertical;
-      min-height: 80px;
-      font-family: inherit;
-    }
-
-    .emoji-suggest {
-      display: flex;
-      gap: 6px;
-      margin-top: 8px;
-      flex-wrap: wrap;
-    }
-    .emoji-suggest button {
-      font-size: 20px;
-      background: var(--teal-pale);
-      border: none;
-      border-radius: 10px;
-      width: 38px;
-      height: 38px;
-      cursor: pointer;
-      transition: transform 0.15s ease;
-    }
-    .emoji-suggest button:hover { transform: scale(1.15); background: var(--teal-light); }
-
-    .form-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: flex-end;
-      margin-top: 24px;
-    }
-
     /* ========== TOAST ========== */
     .toast {
       position: fixed;
@@ -535,46 +370,10 @@
       margin-bottom: 8px;
     }
 
-    /* ========== LOADING ========== */
-    .loading {
-      text-align: center;
-      padding: 60px 20px;
-      grid-column: 1 / -1;
-    }
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid var(--teal-pale);
-      border-top-color: var(--teal-deep);
-      border-radius: 50%;
-      margin: 0 auto 16px;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ========== ADMIN BADGE ========== */
-    .admin-badge {
-      display: none;
-      background: var(--teal-pale);
-      color: var(--teal-deep);
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-    body.is-admin .admin-badge { display: inline-flex; }
-
     /* ========== MOBILE ========== */
     @media (max-width: 640px) {
       .container { padding: 20px 14px 14px; }
-      header { flex-direction: column; align-items: flex-start; }
-      .header-actions { width: 100%; justify-content: space-between; }
       .apps-grid { grid-template-columns: 1fr; gap: 16px; }
-      .fab { bottom: 20px; right: 20px; padding: 0 20px; height: 54px; }
-      .fab .fab-label { display: none; }
-      .modal { padding: 22px; }
     }
   </style>
 </head>
@@ -585,16 +384,8 @@
         <span class="brand-logo">📚</span>
         <div>
           <h1 class="brand-title">TeeLibrary</h1>
-          <div class="brand-subtitle">
-            Moje knihovna webových aplikací
-            <span class="admin-badge">✦ admin</span>
-          </div>
+          <div class="brand-subtitle">Moje knihovna webových aplikací</div>
         </div>
-      </div>
-      <div class="header-actions">
-        <button id="auth-btn" class="btn btn-ghost">
-          <span id="auth-label">Přihlásit</span>
-        </button>
       </div>
     </header>
 
@@ -614,155 +405,39 @@
       <!-- kategorie se vykreslují z JS -->
     </nav>
 
-    <main class="apps-grid" id="apps-grid">
-      <div class="loading">
-        <div class="spinner"></div>
-        <p>Načítám knihovnu…</p>
-      </div>
-    </main>
-  </div>
-
-  <!-- FAB: Přidat appku (jen admin) -->
-  <button id="fab-add" class="fab admin-only" aria-label="Přidat appku">
-    <span class="fab-icon">+</span>
-    <span class="fab-label">Přidat appku</span>
-  </button>
-
-  <!-- Modal: Appka (add/edit) -->
-  <div class="modal-backdrop" id="app-modal">
-    <div class="modal" role="dialog" aria-modal="true">
-      <div class="modal-header">
-        <h2 class="modal-title" id="app-modal-title">Přidat appku</h2>
-        <button class="modal-close" data-close-modal="app-modal">×</button>
-      </div>
-      <form id="app-form">
-        <input type="hidden" id="app-id" />
-        <div class="form-group">
-          <label class="form-label" for="app-name">Název *</label>
-          <input class="form-input" type="text" id="app-name" required maxlength="60" />
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="app-url">URL *</label>
-          <input class="form-input" type="url" id="app-url" required placeholder="https://..." />
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="app-category">Kategorie *</label>
-          <select class="form-select" id="app-category" required></select>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="app-emoji">Emoji ikona *</label>
-          <input class="form-input" type="text" id="app-emoji" required maxlength="4" placeholder="🗺️" />
-          <div class="emoji-suggest" id="app-emoji-suggest"></div>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="app-description">Popis *</label>
-          <textarea class="form-textarea" id="app-description" required maxlength="200"></textarea>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="app-screenshot">URL screenshotu (volitelné)</label>
-          <input class="form-input" type="url" id="app-screenshot" placeholder="https://..." />
-        </div>
-        <div class="form-actions">
-          <button type="button" class="btn btn-ghost" data-close-modal="app-modal">Zrušit</button>
-          <button type="submit" class="btn btn-primary">Uložit</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Modal: Kategorie -->
-  <div class="modal-backdrop" id="cat-modal">
-    <div class="modal" role="dialog" aria-modal="true">
-      <div class="modal-header">
-        <h2 class="modal-title">Nová kategorie</h2>
-        <button class="modal-close" data-close-modal="cat-modal">×</button>
-      </div>
-      <form id="cat-form">
-        <div class="form-group">
-          <label class="form-label" for="cat-name">Název *</label>
-          <input class="form-input" type="text" id="cat-name" required maxlength="30" />
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="cat-emoji">Emoji *</label>
-          <input class="form-input" type="text" id="cat-emoji" required maxlength="4" placeholder="🧠" />
-          <div class="emoji-suggest" id="cat-emoji-suggest"></div>
-        </div>
-        <div class="form-actions">
-          <button type="button" class="btn btn-ghost" data-close-modal="cat-modal">Zrušit</button>
-          <button type="submit" class="btn btn-primary">Přidat</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Modal: Confirm -->
-  <div class="modal-backdrop" id="confirm-modal">
-    <div class="modal" role="dialog" aria-modal="true" style="max-width: 420px;">
-      <div class="modal-header">
-        <h2 class="modal-title" id="confirm-title">Opravdu smazat?</h2>
-      </div>
-      <p id="confirm-message" style="color: var(--text-soft); margin-bottom: 20px;">Tuto akci nelze vrátit.</p>
-      <div class="form-actions">
-        <button type="button" class="btn btn-ghost" data-close-modal="confirm-modal">Zrušit</button>
-        <button type="button" class="btn btn-danger" id="confirm-ok">Smazat</button>
-      </div>
-    </div>
+    <main class="apps-grid" id="apps-grid"></main>
   </div>
 
   <!-- Toast -->
   <div class="toast" id="toast"></div>
 
   <!-- ========================================================== -->
-  <!-- ============= APP LOGIC (Firebase + UI) ================== -->
+  <!-- ====================== DATA & LOGIKA ====================== -->
   <!-- ========================================================== -->
-  <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-    import {
-      getFirestore, collection, onSnapshot, addDoc, updateDoc,
-      deleteDoc, doc, getDocs, query, orderBy, serverTimestamp, where
-    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-    import {
-      getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged
-    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+  <script>
+    // ==========================================================
+    // 📚 KNIHOVNA — tady se přidávají položky
+    // ==========================================================
+    // Chceš přidat appku? Stačí dopsat řádek do APPS:
+    //   { name:'Název', url:'https://...', category:'aplikace', emoji:'✨', description:'Popisek.' }
+    // Kategorie (category) musí odpovídat 'id' některé položky v CATEGORIES.
+    // ==========================================================
 
-    // ==========================================================
-    // 🔧 KONFIGURACE — DOPLŇ SVOJE HODNOTY
-    // ==========================================================
-    // 1. firebaseConfig: zkopíruj z Firebase konzole (Project settings → General → Your apps)
-    // 2. ADMIN_EMAIL: email, kterým se budeš přihlašovat přes Google
-    //    (jen tento email bude moci přidávat/upravovat/mazat)
-    // ==========================================================
-    const firebaseConfig = {
-      apiKey:            'AIzaSyAZlT96fLEXEhLGZluFLRarJtKrWjSF7uQ',
-      authDomain:        'teelibrary.firebaseapp.com',
-      projectId:         'teelibrary',
-      storageBucket:     'teelibrary.firebasestorage.app',
-      messagingSenderId: '629413046703',
-      appId:             '1:629413046703:web:59ce8610c3aa8d94e1275a',
-      measurementId:     'G-S2CEEBSXXD',
-    };
-
-    const ADMIN_EMAIL = 'komarkova13@gmail.com';
-
-    // ==========================================================
-    // Default data (seed při prvním spuštění)
-    // ==========================================================
-    const DEFAULT_CATEGORIES = [
-      { id: 'terapie',    name: 'Terapie',    emoji: '🧠', order: 1 },
-      { id: 'aplikace',   name: 'Aplikace',   emoji: '💻', order: 2 },
-      { id: 'komunikace', name: 'Komunikace', emoji: '💬', order: 3 },
-      { id: 'ostatni',    name: 'Ostatní',    emoji: '📦', order: 4 },
+    const CATEGORIES = [
+      { id: 'terapie',    name: 'Terapie',     emoji: '🧠' },
+      { id: 'aplikace',   name: 'Aplikace',    emoji: '💻' },
+      { id: 'komunikace', name: 'Komunikace',  emoji: '💬' },
+      { id: 'klienti',    name: 'Pro klienty', emoji: '🤝' },
+      { id: 'ostatni',    name: 'Ostatní',     emoji: '📦' },
     ];
 
-    const DEFAULT_APPS = [
+    const APPS = [
       {
         name: 'FirstMap',
         url: 'https://firstmap-rosy.vercel.app/',
         category: 'aplikace',
         emoji: '🗺️',
         description: 'Interaktivní mapa pro vizualizaci dat.',
-        screenshot: null,
-        tags: [],
       },
       {
         name: 'Terka Pro',
@@ -770,8 +445,6 @@
         category: 'aplikace',
         emoji: '✨',
         description: 'Profesionální nástroj pro každodenní práci.',
-        screenshot: null,
-        tags: [],
       },
       {
         name: 'Digiterapie Studio',
@@ -779,8 +452,13 @@
         category: 'terapie',
         emoji: '🧠',
         description: 'AI Creative Tools for Therapists — kreativní nástroje pro terapeuty.',
-        screenshot: null,
-        tags: ['AI', 'terapie'],
+      },
+      {
+        name: 'SandTray Portal',
+        url: 'https://sandtray-portal.vercel.app/',
+        category: 'terapie',
+        emoji: '🏖️',
+        description: 'Portál pro práci s pískovištěm (sand tray) v terapii.',
       },
       {
         name: 'Gabina Pro',
@@ -788,8 +466,6 @@
         category: 'komunikace',
         emoji: '💜',
         description: 'Profesionální komunikační nástroj.',
-        screenshot: null,
-        tags: [],
       },
       {
         name: 'Erasmus+ Göteborg 2026',
@@ -797,37 +473,42 @@
         category: 'ostatni',
         emoji: '🌍',
         description: 'Projektová stránka pro Erasmus+ výjezd do Göteborgu 2026.',
-        screenshot: null,
-        tags: ['Erasmus', 'projekt'],
+      },
+      {
+        name: 'Erasmus+ Slovensko',
+        url: 'https://erasmus-amalthea-sk.vercel.app/#/',
+        category: 'ostatni',
+        emoji: '🇸🇰',
+        description: 'Erasmus+ projekt pro Slovensko (Amalthea).',
+      },
+      {
+        name: 'Tři domečky',
+        url: 'https://gemini.google.com/share/cbc88704321d',
+        category: 'klienti',
+        emoji: '🏡',
+        description: 'Zjišťování aktuálních potřeb dětí.',
+      },
+      {
+        name: 'Loď poznání',
+        url: 'https://gemini.google.com/share/8fc64a1d5717',
+        category: 'klienti',
+        emoji: '⛵',
+        description: 'Nástroj na podporu spolupráce.',
+      },
+      {
+        name: 'Životní film',
+        url: 'https://gemini.google.com/share/ae96592c2c5e',
+        category: 'klienti',
+        emoji: '🎬',
+        description: 'Mapování sebeobrazu.',
       },
     ];
-
-    const EMOJI_SUGGEST_APPS = ['🗺️','✨','🧠','💜','🌍','🎨','📚','🎵','🛠️','💡','🌸','🎯'];
-    const EMOJI_SUGGEST_CATS = ['🧠','💻','💬','📦','🎨','📚','🛠️','✨','🌸','🎯','🔬','📱'];
 
     // ==========================================================
     // State
     // ==========================================================
-    let apps = [];
-    let categories = [];
     let currentCategory = 'all';
     let currentSearch = '';
-    let isAdmin = false;
-    let editingAppId = null;
-    let pendingConfirm = null;
-    let seedAttempted = false;
-
-    // Lokální cache (fallback při offline / první paint)
-    const CACHE_KEY_APPS = 'teelibrary_cache_apps';
-    const CACHE_KEY_CATS = 'teelibrary_cache_cats';
-
-    // ==========================================================
-    // Firebase init
-    // ==========================================================
-    const firebaseApp = initializeApp(firebaseConfig);
-    const db = getFirestore(firebaseApp);
-    const auth = getAuth(firebaseApp);
-    const googleProvider = new GoogleAuthProvider();
 
     // ==========================================================
     // DOM refs
@@ -836,56 +517,16 @@
     const grid = $('#apps-grid');
     const categoriesEl = $('#categories');
     const searchInput = $('#search-input');
-    const authBtn = $('#auth-btn');
-    const authLabel = $('#auth-label');
-    const fabAdd = $('#fab-add');
     const toastEl = $('#toast');
 
-    const appModal = $('#app-modal');
-    const appForm = $('#app-form');
-    const appModalTitle = $('#app-modal-title');
-    const catModal = $('#cat-modal');
-    const catForm = $('#cat-form');
-    const confirmModal = $('#confirm-modal');
-    const confirmTitle = $('#confirm-title');
-    const confirmMessage = $('#confirm-message');
-    const confirmOk = $('#confirm-ok');
-
     // ==========================================================
-    // UI helpers
+    // Helpers
     // ==========================================================
     function toast(msg) {
       toastEl.textContent = msg;
       toastEl.classList.add('show');
       setTimeout(() => toastEl.classList.remove('show'), 2200);
     }
-
-    function openModal(id) { document.getElementById(id).classList.add('open'); }
-    function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-
-    document.querySelectorAll('[data-close-modal]').forEach((btn) => {
-      btn.addEventListener('click', () => closeModal(btn.dataset.closeModal));
-    });
-    document.querySelectorAll('.modal-backdrop').forEach((bd) => {
-      bd.addEventListener('click', (e) => { if (e.target === bd) bd.classList.remove('open'); });
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.modal-backdrop.open').forEach((m) => m.classList.remove('open'));
-      }
-    });
-
-    function confirmAction(title, message, onConfirm) {
-      confirmTitle.textContent = title;
-      confirmMessage.textContent = message;
-      pendingConfirm = onConfirm;
-      openModal('confirm-modal');
-    }
-    confirmOk.addEventListener('click', () => {
-      if (pendingConfirm) pendingConfirm();
-      pendingConfirm = null;
-      closeModal('confirm-modal');
-    });
 
     function escapeHtml(s) {
       return String(s || '').replace(/[&<>"']/g, (c) => ({
@@ -894,198 +535,33 @@
     }
 
     // ==========================================================
-    // Auth
-    // ==========================================================
-    authBtn.addEventListener('click', async () => {
-      try {
-        if (auth.currentUser) {
-          await signOut(auth);
-          toast('Odhlášeno');
-        } else {
-          await signInWithPopup(auth, googleProvider);
-        }
-      } catch (err) {
-        console.error(err);
-        toast('Chyba přihlášení');
-      }
-    });
-
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        isAdmin = user.email === ADMIN_EMAIL;
-        authLabel.textContent = isAdmin ? 'Odhlásit' : 'Odhlásit (host)';
-        document.body.classList.toggle('is-admin', isAdmin);
-        if (isAdmin) {
-          toast('Vítej zpět, Terezo ✨');
-          // Seed proběhne jen jednou za session a jen pro admina
-          if (!seedAttempted) {
-            seedAttempted = true;
-            seedIfEmpty();
-          }
-        }
-      } else {
-        isAdmin = false;
-        authLabel.textContent = 'Přihlásit';
-        document.body.classList.remove('is-admin');
-      }
-      renderApps();
-      renderCategories();
-    });
-
-    // ==========================================================
-    // Firestore listeners
-    // ==========================================================
-    function startListeners() {
-      // Apps
-      onSnapshot(
-        collection(db, 'apps'),
-        (snap) => {
-          apps = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-          localStorage.setItem(CACHE_KEY_APPS, JSON.stringify(apps));
-          renderApps();
-        },
-        (err) => {
-          console.error('apps listener error:', err);
-          toast('Chyba načítání appek');
-        }
-      );
-
-      // Categories
-      onSnapshot(
-        query(collection(db, 'categories'), orderBy('order', 'asc')),
-        (snap) => {
-          categories = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-          localStorage.setItem(CACHE_KEY_CATS, JSON.stringify(categories));
-          renderCategories();
-          populateCategorySelect();
-        },
-        (err) => {
-          console.error('cats listener error:', err);
-        }
-      );
-    }
-
-    // Načti cache pro rychlejší první paint
-    function loadCache() {
-      try {
-        const cachedApps = JSON.parse(localStorage.getItem(CACHE_KEY_APPS) || '[]');
-        const cachedCats = JSON.parse(localStorage.getItem(CACHE_KEY_CATS) || '[]');
-        if (cachedApps.length) apps = cachedApps;
-        if (cachedCats.length) categories = cachedCats;
-      } catch {}
-    }
-
-    // ==========================================================
-    // Seed (první spuštění)
-    // ==========================================================
-    async function seedIfEmpty() {
-      try {
-        const [appsSnap, catsSnap] = await Promise.all([
-          getDocs(collection(db, 'apps')),
-          getDocs(collection(db, 'categories')),
-        ]);
-
-        if (catsSnap.empty) {
-          console.log('Seeding categories…');
-          for (const c of DEFAULT_CATEGORIES) {
-            await addDoc(collection(db, 'categories'), c);
-          }
-        }
-        if (appsSnap.empty) {
-          console.log('Seeding apps…');
-          for (const a of DEFAULT_APPS) {
-            await addDoc(collection(db, 'apps'), { ...a, createdAt: serverTimestamp() });
-          }
-        }
-      } catch (err) {
-        console.warn('Seed skipped (pravděpodobně nejsi admin nebo rules neumožňují zápis):', err.message);
-      }
-    }
-
-    // ==========================================================
     // Rendering
     // ==========================================================
     function renderCategories() {
-      const tabs = [
-        { id: 'all', name: 'Vše', emoji: '✨', isAll: true },
-        ...categories,
-      ];
+      const tabs = [{ id: 'all', name: 'Vše', emoji: '✨' }, ...CATEGORIES];
       categoriesEl.innerHTML = tabs
         .map((c) => {
           const active = c.id === currentCategory ? 'active' : '';
-          const delBtn =
-            !c.isAll && isAdmin
-              ? `<span class="cat-delete" data-del-cat="${c.id}" title="Smazat kategorii">×</span>`
-              : '';
           return `
             <button class="cat-btn ${active}" data-cat="${c.id}">
               <span>${c.emoji || '🏷'}</span>
               <span>${escapeHtml(c.name)}</span>
-              ${delBtn}
-            </button>
-          `;
+            </button>`;
         })
-        .join('') +
-        (isAdmin
-          ? `<button class="cat-btn admin-only" id="add-cat-btn" style="border-style:dashed;">
-               <span>+</span><span>Kategorie</span>
-             </button>`
-          : '');
+        .join('');
 
-      // Click handlery
       categoriesEl.querySelectorAll('.cat-btn').forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          // smazání kategorie
-          if (e.target.matches('[data-del-cat]')) {
-            e.stopPropagation();
-            const id = e.target.dataset.delCat;
-            const cat = categories.find((x) => x.id === id);
-            const used = apps.filter((a) => a.category === id).length;
-            confirmAction(
-              'Smazat kategorii?',
-              used > 0
-                ? `Kategorie "${cat.name}" obsahuje ${used} appek. Appky zůstanou, ale ztratí kategorii.`
-                : `Kategorie "${cat.name}" bude smazána.`,
-              async () => {
-                try {
-                  await deleteDoc(doc(db, 'categories', id));
-                  if (currentCategory === id) currentCategory = 'all';
-                  toast('Kategorie smazána');
-                } catch (err) {
-                  console.error(err);
-                  toast('Chyba při mazání');
-                }
-              }
-            );
-            return;
-          }
-          // přidání kategorie
-          if (btn.id === 'add-cat-btn') {
-            catForm.reset();
-            openModal('cat-modal');
-            return;
-          }
-          // výběr kategorie
-          const cat = btn.dataset.cat;
-          if (cat) {
-            currentCategory = cat;
-            renderCategories();
-            renderApps();
-          }
+        btn.addEventListener('click', () => {
+          currentCategory = btn.dataset.cat;
+          renderCategories();
+          renderApps();
         });
       });
     }
 
-    function populateCategorySelect() {
-      const sel = $('#app-category');
-      sel.innerHTML = categories
-        .map((c) => `<option value="${c.id}">${c.emoji} ${escapeHtml(c.name)}</option>`)
-        .join('');
-    }
-
     function renderApps() {
       const q = currentSearch.trim().toLowerCase();
-      let list = apps.slice();
+      let list = APPS.slice();
 
       if (currentCategory !== 'all') {
         list = list.filter((a) => a.category === currentCategory);
@@ -1094,32 +570,23 @@
         list = list.filter(
           (a) =>
             (a.name || '').toLowerCase().includes(q) ||
-            (a.description || '').toLowerCase().includes(q) ||
-            (a.tags || []).some((t) => t.toLowerCase().includes(q))
+            (a.description || '').toLowerCase().includes(q)
         );
       }
-
-      // Řazení: nejnovější první (pokud má createdAt), jinak abecedně
-      list.sort((a, b) => {
-        const ta = a.createdAt?.seconds || 0;
-        const tb = b.createdAt?.seconds || 0;
-        if (ta !== tb) return tb - ta;
-        return (a.name || '').localeCompare(b.name || '');
-      });
 
       if (!list.length) {
         grid.innerHTML = `
           <div class="empty-state">
             <div class="empty-icon">📭</div>
             <h3>Zatím nic tady není</h3>
-            <p>${q ? 'Zkus jiný vyhledávací výraz.' : 'Přidej první aplikaci do své knihovny.'}</p>
+            <p>${q ? 'Zkus jiný vyhledávací výraz.' : 'Tady se objeví tvoje aplikace.'}</p>
           </div>`;
         return;
       }
 
       grid.innerHTML = list
         .map((a, i) => {
-          const cat = categories.find((c) => c.id === a.category);
+          const cat = CATEGORIES.find((c) => c.id === a.category);
           const catLabel = cat ? `${cat.emoji} ${escapeHtml(cat.name)}` : '—';
           const screenshot = a.screenshot
             ? `<img src="${escapeHtml(a.screenshot)}" alt="${escapeHtml(a.name)}" loading="lazy" />`
@@ -1137,16 +604,12 @@
                 <div class="app-actions">
                   <button class="btn btn-primary" data-open="${escapeHtml(a.url)}">Otevřít</button>
                   <button class="btn btn-ghost btn-icon" data-copy="${escapeHtml(a.url)}" title="Kopírovat odkaz">📋</button>
-                  <button class="btn btn-ghost btn-icon admin-only" data-edit="${a.id}" title="Upravit">✏️</button>
-                  <button class="btn btn-ghost btn-icon admin-only" data-delete="${a.id}" title="Smazat">🗑</button>
                 </div>
               </div>
-            </article>
-          `;
+            </article>`;
         })
         .join('');
 
-      // Akční listenery
       grid.querySelectorAll('[data-open]').forEach((b) =>
         b.addEventListener('click', () => window.open(b.dataset.open, '_blank', 'noopener'))
       );
@@ -1160,115 +623,7 @@
           }
         })
       );
-      grid.querySelectorAll('[data-edit]').forEach((b) =>
-        b.addEventListener('click', () => openEditApp(b.dataset.edit))
-      );
-      grid.querySelectorAll('[data-delete]').forEach((b) =>
-        b.addEventListener('click', () => deleteAppPrompt(b.dataset.delete))
-      );
     }
-
-    // ==========================================================
-    // CRUD: apps
-    // ==========================================================
-    fabAdd.addEventListener('click', () => {
-      editingAppId = null;
-      appForm.reset();
-      $('#app-id').value = '';
-      appModalTitle.textContent = 'Přidat appku';
-      populateCategorySelect();
-      openModal('app-modal');
-    });
-
-    function openEditApp(id) {
-      const a = apps.find((x) => x.id === id);
-      if (!a) return;
-      editingAppId = id;
-      appModalTitle.textContent = 'Upravit appku';
-      populateCategorySelect();
-      $('#app-id').value = id;
-      $('#app-name').value = a.name || '';
-      $('#app-url').value = a.url || '';
-      $('#app-category').value = a.category || '';
-      $('#app-emoji').value = a.emoji || '';
-      $('#app-description').value = a.description || '';
-      $('#app-screenshot').value = a.screenshot || '';
-      openModal('app-modal');
-    }
-
-    appForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = {
-        name:        $('#app-name').value.trim(),
-        url:         $('#app-url').value.trim(),
-        category:    $('#app-category').value,
-        emoji:       $('#app-emoji').value.trim(),
-        description: $('#app-description').value.trim(),
-        screenshot:  $('#app-screenshot').value.trim() || null,
-        tags:        [],
-      };
-      try {
-        if (editingAppId) {
-          await updateDoc(doc(db, 'apps', editingAppId), data);
-          toast('Upraveno ✓');
-        } else {
-          await addDoc(collection(db, 'apps'), { ...data, createdAt: serverTimestamp() });
-          toast('Přidáno ✓');
-        }
-        closeModal('app-modal');
-      } catch (err) {
-        console.error(err);
-        toast('Chyba při ukládání');
-      }
-    });
-
-    function deleteAppPrompt(id) {
-      const a = apps.find((x) => x.id === id);
-      if (!a) return;
-      confirmAction('Smazat appku?', `Appka "${a.name}" bude smazána.`, async () => {
-        try {
-          await deleteDoc(doc(db, 'apps', id));
-          toast('Smazáno');
-        } catch (err) {
-          console.error(err);
-          toast('Chyba při mazání');
-        }
-      });
-    }
-
-    // ==========================================================
-    // CRUD: categories
-    // ==========================================================
-    catForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const name = $('#cat-name').value.trim();
-      const emoji = $('#cat-emoji').value.trim();
-      if (!name || !emoji) return;
-      try {
-        const order = (categories.at(-1)?.order || 0) + 1;
-        await addDoc(collection(db, 'categories'), { name, emoji, order });
-        toast('Kategorie přidána ✓');
-        closeModal('cat-modal');
-      } catch (err) {
-        console.error(err);
-        toast('Chyba při ukládání');
-      }
-    });
-
-    // ==========================================================
-    // Emoji suggest chips
-    // ==========================================================
-    function setupEmojiSuggest(containerId, targetId, list) {
-      const c = document.getElementById(containerId);
-      c.innerHTML = list.map((e) => `<button type="button" data-emoji="${e}">${e}</button>`).join('');
-      c.querySelectorAll('button').forEach((b) =>
-        b.addEventListener('click', () => {
-          document.getElementById(targetId).value = b.dataset.emoji;
-        })
-      );
-    }
-    setupEmojiSuggest('app-emoji-suggest', 'app-emoji', EMOJI_SUGGEST_APPS);
-    setupEmojiSuggest('cat-emoji-suggest', 'cat-emoji', EMOJI_SUGGEST_CATS);
 
     // ==========================================================
     // Search
@@ -1292,12 +647,8 @@
     // ==========================================================
     // Boot
     // ==========================================================
-    loadCache();
-    if (apps.length) renderApps();
-    if (categories.length) renderCategories();
-
-    startListeners();
-    // Seed proběhne automaticky po přihlášení jako admin (viz onAuthStateChanged výše)
+    renderCategories();
+    renderApps();
   </script>
 </body>
 </html>
