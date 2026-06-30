@@ -424,11 +424,14 @@
     // ==========================================================
 
     const CATEGORIES = [
-      { id: 'terapie',    name: 'Terapie',     emoji: '🧠' },
-      { id: 'aplikace',   name: 'Aplikace',    emoji: '💻' },
-      { id: 'komunikace', name: 'Komunikace',  emoji: '💬' },
-      { id: 'klienti',    name: 'Pro klienty', emoji: '🤝' },
-      { id: 'ostatni',    name: 'Ostatní',     emoji: '📦' },
+      { id: 'aplikace',  name: 'Aplikace',    emoji: '💻' },
+      { id: 'portal',    name: 'Portál',      emoji: '🚪' },
+      { id: 'cestovani', name: 'Cestování',   emoji: '✈️' },
+      { id: 'gamebook',  name: 'Gamebook',    emoji: '📖' },
+      { id: 'klienti',   name: 'Pro klienty', emoji: '🤝' },
+      { id: 'osobni',    name: 'Osobní',      emoji: '👤' },
+      { id: 'webovky',   name: 'Webovky',     emoji: '🌐' },
+      { id: 'ostatni',   name: 'Ostatní',     emoji: '📦' },
     ];
 
     const APPS = [
@@ -442,93 +445,93 @@
       {
         name: 'Terka Pro',
         url: 'https://terka-pro.vercel.app/',
-        category: 'aplikace',
+        category: 'osobni',
         emoji: '✨',
         description: 'Profesionální nástroj pro každodenní práci.',
       },
       {
         name: 'Digiterapie Studio',
         url: 'https://digistudio-eta.vercel.app/',
-        category: 'terapie',
+        category: 'aplikace',
         emoji: '🧠',
         description: 'AI Creative Tools for Therapists — kreativní nástroje pro terapeuty.',
       },
       {
         name: 'Genogram',
         url: 'https://genogram-ebon.vercel.app/',
-        category: 'terapie',
+        category: 'aplikace',
         emoji: '🌳',
         description: 'Interní nástroj na tvorbu genogramů v rodinách.',
       },
       {
         name: 'SandTray Portal',
         url: 'https://sandtray-portal.vercel.app/',
-        category: 'terapie',
+        category: 'portal',
         emoji: '🏖️',
         description: 'Portál pro práci s pískovištěm (sand tray) v terapii.',
       },
       {
         name: 'Gabina Pro',
         url: 'https://gabina-pro.vercel.app/',
-        category: 'komunikace',
+        category: 'ostatni',
         emoji: '💜',
         description: 'Profesionální komunikační nástroj.',
       },
       {
         name: 'Erasmus+ Göteborg 2026',
         url: 'https://erasmus-goteborg.vercel.app/',
-        category: 'ostatni',
+        category: 'cestovani',
         emoji: '🌍',
         description: 'Projektová stránka pro Erasmus+ výjezd do Göteborgu 2026.',
       },
       {
         name: 'Erasmus+ Slovensko',
         url: 'https://erasmus-amalthea-sk.vercel.app/#/',
-        category: 'ostatni',
+        category: 'cestovani',
         emoji: '🇸🇰',
         description: 'Erasmus+ projekt pro Slovensko (Amalthea).',
       },
       {
         name: 'Tři domečky',
         url: 'https://gemini.google.com/share/cbc88704321d',
-        category: 'klienti',
+        category: 'gamebook',
         emoji: '🏡',
         description: 'Zjišťování aktuálních potřeb dětí.',
       },
       {
         name: 'Loď poznání',
         url: 'https://gemini.google.com/share/8fc64a1d5717',
-        category: 'klienti',
+        category: 'gamebook',
         emoji: '⛵',
         description: 'Nástroj na podporu spolupráce.',
       },
       {
         name: 'Životní film',
         url: 'https://gemini.google.com/share/ae96592c2c5e',
-        category: 'klienti',
+        category: 'gamebook',
         emoji: '🎬',
         description: 'Mapování sebeobrazu.',
       },
       {
         name: 'NEO Dashboard',
         url: 'https://neo-dashboard-nine.vercel.app/',
-        category: 'terapie',
+        category: 'portal',
         emoji: '🏥',
         description: 'Interní nástroj pro NEO centrum (prototyp).',
       },
       {
-        name: 'CryptoKeeper',
-        url: 'https://cryptokeeper-nu.vercel.app/',
-        category: 'aplikace',
-        emoji: '🪙',
-        description: 'Osobní nástroj na sledování kryptoměn.',
+        name: 'AI OSPOD',
+        url: 'https://ai-ospod.vercel.app/',
+        category: 'portal',
+        emoji: '📋',
+        description: 'Přehled pro pracovníky OSPOD o AI.',
       },
       {
-        name: 'Aplikace (AI OSPOD)',
-        url: 'https://ai-ospod.vercel.app/',
-        category: 'ostatni',
-        emoji: '📦',
-        description: 'Zatím bez popisu — upřesním později.',
+        name: 'CryptoKeeper',
+        url: 'https://cryptokeeper-nu.vercel.app/',
+        category: 'osobni',
+        emoji: '🪙',
+        description: 'Osobní nástroj na sledování kryptoměn.',
       },
       {
         name: 'Přežij',
@@ -540,14 +543,14 @@
       {
         name: 'Přijímačky',
         url: 'https://prijimacky-snowy.vercel.app/',
-        category: 'aplikace',
+        category: 'osobni',
         emoji: '📝',
         description: 'Interní appka na přípravu na přijímačky.',
       },
       {
         name: 'Emma Němčina',
         url: 'https://emma-nemcina.vercel.app/',
-        category: 'aplikace',
+        category: 'osobni',
         emoji: '🇩🇪',
         description: 'Interní appka na učení vybrané látky z němčiny.',
       },
@@ -568,72 +571,65 @@
       {
         name: 'Amalthea Insta',
         url: 'https://amalthea-insta.vercel.app/',
-        category: 'komunikace',
+        category: 'portal',
         emoji: '📸',
         description: 'Interní nástroj pro Amaltheu na správu Instagram profilu.',
       },
       {
         name: 'Pelmel',
         url: 'https://pelmel-app.vercel.app/',
-        category: 'ostatni',
-        emoji: '📦',
-        description: 'Zatím bez popisu — upřesním později.',
+        category: 'osobni',
+        emoji: '✅',
+        description: 'Můj to-do list.',
       },
       {
         name: 'Amalka',
         url: 'https://amalka.vercel.app/',
-        category: 'ostatni',
-        emoji: '📦',
-        description: 'Zatím bez popisu — upřesním později.',
+        category: 'portal',
+        emoji: '📘',
+        description: 'Kompletní průvodce Erasmem pro Amaltheu.',
       },
       {
         name: 'Arménie — výprava',
         url: 'https://armenia-trip.vercel.app/',
-        category: 'ostatni',
+        category: 'cestovani',
         emoji: '🏔️',
         description: 'Cestovatelská interní appka k výpravě do Arménie.',
       },
       {
         name: 'Sociální Hackathon',
         url: 'https://socialnihackathon.cz/',
-        category: 'ostatni',
+        category: 'webovky',
         emoji: '🌐',
-        description: 'Zatím bez popisu — upřesním později.',
-      },
-      {
-        name: "Emma's Story Gamebook",
-        url: 'https://emmas-story-gamebook.vercel.app/',
-        category: 'ostatni',
-        emoji: '📖',
-        description: 'Zatím bez popisu — upřesním později.',
+        description: 'Web Sociálního hackathonu.',
       },
       {
         name: 'Kompot',
         url: 'https://kompot-one.vercel.app/',
-        category: 'ostatni',
-        emoji: '📦',
-        description: 'Zatím bez popisu — upřesním později.',
+        category: 'aplikace',
+        emoji: '📊',
+        description: 'Appka na kompletní hodnocení.',
       },
       {
         name: 'Kompas',
         url: 'https://kompas-alpha.vercel.app/',
-        category: 'ostatni',
+        category: 'aplikace',
         emoji: '🧭',
-        description: 'Zatím bez popisu — upřesním později.',
+        description: 'Appka na vyhodnocení ohroženosti dítěte u rodiče s postižením.',
       },
       {
         name: 'Erasmus+ (v2)',
         url: 'https://erasmus-v2.vercel.app/',
         category: 'ostatni',
         emoji: '🌍',
-        description: 'Interní nástroj Amalthea k Erasmu.',
+        description: 'Prezentace na seminář o Erasmu pro rodinné terapeuty.',
       },
       {
         name: 'Rela — Landing',
         url: 'https://rela-landing.vercel.app/',
-        category: 'ostatni',
-        emoji: '📦',
-        description: 'Zatím bez popisu — upřesním později.',
+        category: 'webovky',
+        emoji: '🌐',
+        description: 'Landing page pro aplikaci Rela.',
       },
     ];
 
@@ -672,13 +668,15 @@
     // ==========================================================
     function renderCategories() {
       const tabs = [{ id: 'all', name: 'Vše', emoji: '✨' }, ...CATEGORIES];
+      const countFor = (id) =>
+        id === 'all' ? APPS.length : APPS.filter((a) => a.category === id).length;
       categoriesEl.innerHTML = tabs
         .map((c) => {
           const active = c.id === currentCategory ? 'active' : '';
           return `
             <button class="cat-btn ${active}" data-cat="${c.id}">
               <span>${c.emoji || '🏷'}</span>
-              <span>${escapeHtml(c.name)}</span>
+              <span>${escapeHtml(c.name)} (${countFor(c.id)})</span>
             </button>`;
         })
         .join('');
